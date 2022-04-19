@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f1f1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mt-4 {
+  margin-top: 40px;
+}
+
+.mb-4 {
+  margin-bottom: 40px;
+}
+
+/* Gallery */
+
+#gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: max-content;
+  margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
+  gap: 5px;
+}
+
+#gallery-container .gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+#gallery-container .gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+#gallery-container .gallery-item,
+#gallery-container .gallery-item img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  cursor: zoom-in;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+  #gallery-container .gallery-item,
+  #gallery-container .gallery-item img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 660px) {
+  #gallery-container .gallery-item,
+  #gallery-container .gallery-item img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal .content {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal .content,
+.modal .content img {
+  width: 800px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+@media (max-width: 992px) {
+  .modal .content,
+  .modal .content img {
+    width: 500px;
+    height: 400px;
+  }
+
+  .modal .controllers .back,
+  .modal .controllers .next {
+    font-size: 30px !important;
+  }
+}
+
+@media (max-width: 660px) {
+  .modal .content,
+  .modal .content img {
+    width: 320px;
+    height: 250px;
+  }
+
+  .modal .controllers .back,
+  .modal .controllers .next {
+    font-size: 20px !important;
+  }
+}
+
+.modal .content .name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+.modal .controllers .close {
+  display: block;
+  font-size: 30px;
+  color: rgb(231, 70, 70);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.modal .controllers .current-image {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  display: block;
+  border-radius: 5px;
+}
+
+.modal .controllers .back,
+.modal .controllers .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 50px;
+  display: block;
+  padding: 30px;
+  cursor: pointer;
+}
+
+.modal .controllers .back {
+  left: 0;
+}
+
+.modal .controllers .next {
+  right: 0;
+}
